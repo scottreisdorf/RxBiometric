@@ -25,6 +25,7 @@ class RxBiometricBuilder {
   internal lateinit var negativeButtonText: String
   internal lateinit var negativeButtonListener: DialogInterface.OnClickListener
   internal lateinit var executor: Executor
+  internal var deviceCredentialAllowed : Boolean = false
 
   fun title(title: String): RxBiometricBuilder {
     this.title = title
@@ -48,6 +49,11 @@ class RxBiometricBuilder {
 
   fun executor(executor: Executor): RxBiometricBuilder {
     this.executor = executor
+    return this
+  }
+
+  fun deviceCredentialAllowed(deviceCredentialAllowed:Boolean) :RxBiometricBuilder {
+    this.deviceCredentialAllowed = deviceCredentialAllowed
     return this
   }
 

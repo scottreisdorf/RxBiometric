@@ -31,6 +31,7 @@ class RxBiometric {
     private lateinit var negativeButtonText: String
     private lateinit var negativeButtonListener: DialogInterface.OnClickListener
     private lateinit var executor: Executor
+    private var deviceCredentialAllowed : Boolean = false
     private lateinit var promptInfo: BiometricPrompt.PromptInfo
 
     @JvmStatic
@@ -42,9 +43,11 @@ class RxBiometric {
       this.negativeButtonText = builder.negativeButtonText
       this.negativeButtonListener = builder.negativeButtonListener
       this.executor = builder.executor
+      this.deviceCredentialAllowed = builder.deviceCredentialAllowed
       this.promptInfo = BiometricPrompt.PromptInfo.Builder()
         .setTitle(title)
         .setDescription(description)
+        .setDeviceCredentialAllowed(deviceCredentialAllowed)
         .setNegativeButtonText(negativeButtonText).build()
       return this
     }
